@@ -1,0 +1,26 @@
+# --------------------------------------------------
+# COMMON
+# --------------------------------------------------
+
+prod.http_protocol.secure = true
+qa.http_protocol.secure = true
+dev.http_protocol.secure = true
+
+prod.host           = appcmsstaging.viewlift.com
+prod.port           =
+
+qa.host             =
+qa.port             = 15443
+
+dev.host            =
+dev.port            = 15443
+
+# --------------------------------------------------
+# REST API
+# --------------------------------------------------
+testapicall.path              = /57e4b76f-6168-41af-bdd8-c76a2e5bf798/main.json
+
+
+# --------------------------------------------------
+# MQTT BROKER
+# --------------------------------------------------
