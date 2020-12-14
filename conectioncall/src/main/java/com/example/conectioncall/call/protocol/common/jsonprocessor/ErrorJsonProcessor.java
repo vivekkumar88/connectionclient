@@ -41,12 +41,6 @@ public class ErrorJsonProcessor implements IJsonProcessor {
             error.setData(json.opt("records"));
 
             return error;
-        } else if (json.has("exp") && json.getString("exp").toLowerCase().equals("token expired")) {
-            String label = json.optString("error", HttpProtocol.Errors.TOKEN_EXPIRED.toString());
-            String code = json.optString("errorCode", HttpProtocol.Errors.TOKEN_EXPIRED.toString());
-            String description = json.optString("errorDescription", json.optString("exp"));
-
-            return new Error(label, description, code);
         }
 
         return new Boolean(false);

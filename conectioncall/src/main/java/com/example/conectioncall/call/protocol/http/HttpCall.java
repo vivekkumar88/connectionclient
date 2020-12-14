@@ -14,14 +14,16 @@ import com.example.conectioncall.call.protocol.common.exception.Error;
 import com.example.conectioncall.call.protocol.common.extras.Utility;
 import com.example.conectioncall.call.protocol.common.jsonprocessor.ErrorJsonProcessor;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Http specific ATSP service call.
+ * Http specific connectionclient service call.
  */
 public abstract class HttpCall implements ICall {
 
@@ -149,15 +151,24 @@ public abstract class HttpCall implements ICall {
             String body = httpResponse.body();
             // Make sure we have a valid body to parse before even trying to serialize it as JSON.
             if (body != null && body.length() > 0) {
-                JSONObject json = new JSONObject(httpResponse.body());
-                Utility.log("http json = '" + json.toString() + "'");
 
-                Object error = new ErrorJsonProcessor().processJson(json);
+                JSONObject jsonObj = new JSONObject();
+                try {
+                    JSONObject json = new JSONObject(httpResponse.body());
+                    jsonObj = json;
+                } catch (Exception ex) {
+                    JSONArray jsonArray = new JSONArray(httpResponse.body());
+                    jsonObj.put("result", jsonArray);
+                }
+
+                Utility.log("http json = '" + jsonObj.toString() + "'");
+
+                Object error = new ErrorJsonProcessor().processJson(jsonObj);
                 if (error instanceof Error) {
                     ((Error) error).setHttpResponseCode(httpResponse.responseCode());
                     response.put(Error.Key, error);
                 } else {
-                    response = processJson(json);
+                    response = processJson(jsonObj);
                 }
             }
 

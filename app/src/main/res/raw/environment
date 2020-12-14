@@ -6,19 +6,19 @@ prod.http_protocol.secure = true
 qa.http_protocol.secure = true
 dev.http_protocol.secure = true
 
-prod.host           = appcmsstaging.viewlift.com
+prod.host           = open-api.xyz
 prod.port           =
 
 qa.host             =
-qa.port             = 15443
+qa.port             =
 
 dev.host            =
-dev.port            = 15443
+dev.port            =
 
 # --------------------------------------------------
 # REST API
 # --------------------------------------------------
-testapicall.path              = /57e4b76f-6168-41af-bdd8-c76a2e5bf798/main.json
+testapicall.path              = /placeholder/blogs
 
 
 # --------------------------------------------------

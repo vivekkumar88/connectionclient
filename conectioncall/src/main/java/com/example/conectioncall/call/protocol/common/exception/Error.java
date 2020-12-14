@@ -12,7 +12,7 @@ public class Error extends Exception {
     /**
      * The key used to place the error in the response map returned.
      */
-    public static final String Key = "atsp_service_error";
+    public static final String Key = "connectionclient_service_error";
 
     /**
      * The unique error code.

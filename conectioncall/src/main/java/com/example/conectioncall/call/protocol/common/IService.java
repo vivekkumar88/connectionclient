@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * ATSP back end service interface.
+ * connectionclient back end service interface.
  */
 public interface IService {
 
@@ -66,11 +66,11 @@ public interface IService {
     boolean removeDelegate(Service.Event event, IServiceDelegate delegate);
 
     /**
-     * Send the given call to the ATSP service. The call does not expect a response. This is a fire
+     * Send the given call to the connectionclient service. The call does not expect a response. This is a fire
      * and forget type method, even if the call does have a response. If a response does come back,
      * it will be sent back as a notification.
      *
-     * @param call The call to send to the ATSP service.
+     * @param call The call to send to the connectionclient service.
      */
     void send(ICall call);
 
@@ -78,7 +78,7 @@ public interface IService {
      * Send the given call and, if a response occurs, call the given response delegate. Some calls
      * may not have response.
      *
-     * @param call The call to send to the ATSP service.
+     * @param call The call to send to the connectionclient service.
      * @param delegate The response delegate to run if and when a response occurs.
      */
     void send(ICall call, IResponseDelegate delegate);

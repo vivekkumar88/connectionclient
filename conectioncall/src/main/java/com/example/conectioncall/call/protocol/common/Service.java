@@ -193,7 +193,7 @@ public class Service implements IService, IProtocolDelegate {
     }
 
     /**
-     * Make sure to initialize the ATSP environment variables before performing any calls. This
+     * Make sure to initialize the connectionclient environment variables before performing any calls. This
      * should be among the first items initialized when the app starts.
      */
     public void initializeServiceEnvironment(Context context, int resourceId) {
